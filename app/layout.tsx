@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     description: 'Expert Russian manicures and artistic nail designs in New York City',
     type: 'website',
   },
+  manifest: '/manifest.json',
 }
 
 export default function RootLayout({
@@ -28,6 +29,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <link rel="dns-prefetch" href="https://book.squareup.com" />
+        <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#a2382f" />
         <meta name="color-scheme" content="light" />
       </head>
