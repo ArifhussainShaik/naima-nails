@@ -632,6 +632,9 @@ body{
 .h-\[600px\]{
   height: 600px;
 }
+.h-full{
+  height: 100%;
+}
 .min-h-\[600px\]{
   min-height: 600px;
 }

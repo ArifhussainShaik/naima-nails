@@ -11,7 +11,6 @@ const nextConfig = {
     loader: 'default',
     domains: [],
     remotePatterns: [],
-    quality: 85,
   },
   // Ensure proper static file serving
   async rewrites() {
