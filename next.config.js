@@ -31,8 +31,7 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  // Target modern browsers to reduce bundle size
-  target: 'serverless',
+
   // Optimize for modern ES features
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
