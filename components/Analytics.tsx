@@ -2,6 +2,16 @@
 
 import { useReportWebVitals } from 'next/web-vitals'
 
+// Type for gtag function
+type GtagFunction = (command: string, eventName: string, parameters?: Record<string, unknown>) => void
+
+// Extend window with gtag
+declare global {
+  interface Window {
+    gtag?: GtagFunction
+  }
+}
+
 export function Analytics() {
   useReportWebVitals((metric) => {
     if (process.env.NODE_ENV === 'production') {
@@ -32,8 +42,8 @@ export function Analytics() {
       }
 
       // Send to Google Analytics if available
-      if (typeof window !== 'undefined' && (window as any).gtag) {
-        ;(window as any).gtag('event', metric.name, {
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', metric.name, {
           event_category: 'Web Vitals',
           event_label: metric.id,
           value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),

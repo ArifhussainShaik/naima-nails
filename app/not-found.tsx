@@ -17,8 +17,8 @@ export default function NotFound() {
                 Page Not Found
               </h2>
               <p className="text-lg text-gray-600 max-w-lg mx-auto">
-                Sorry, we couldn't find the page you're looking for. 
-                Let's get you back to discovering beautiful nail art and services.
+                Sorry, we couldn&rsquo;t find the page you&rsquo;re looking for. 
+                Let&rsquo;s get you back to discovering beautiful nail art and services.
               </p>
             </div>
             

@@ -60,15 +60,18 @@ function ServiceImage({ src, alt, className }: { src: string; alt: string; class
 
   if (imageError || !useNextImage) {
     return (
-      <img
+      <Image
         src={src}
         alt={alt}
-        className={`w-full h-full object-cover ${className}`}
+        fill
+        className={`object-cover ${className}`}
+        loading="lazy"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
         onError={() => {
-          console.error('Fallback img also failed:', src)
+          console.error('Fallback Image also failed:', src)
           setImageError(true)
         }}
-        onLoad={() => console.log('Fallback img loaded:', src)}
+        onLoad={() => console.log('Fallback Image loaded:', src)}
       />
     )
   }
@@ -81,7 +84,7 @@ function ServiceImage({ src, alt, className }: { src: string; alt: string; class
       className={`object-cover ${className}`}
       loading="lazy"
       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
-      onError={(e) => {
+      onError={() => {
         console.error('Next.js Image failed, switching to fallback:', src)
         setUseNextImage(false)
       }}

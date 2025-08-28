@@ -272,7 +272,7 @@ export default function HomepageClient({ featuredWork, testimonials }: HomepageC
                   ))}
                 </div>
                 <p className="text-gray-600 mb-4 italic leading-relaxed">
-                  "{testimonial.text}"
+                  &ldquo;{testimonial.text}&rdquo;
                 </p>
                 <p className="font-semibold text-accent">— {testimonial.name}</p>
               </motion.div>

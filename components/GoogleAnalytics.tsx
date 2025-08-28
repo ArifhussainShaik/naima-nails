@@ -4,6 +4,16 @@ import Script from 'next/script'
 
 const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX' // Replace with actual GA4 ID
 
+// Type for gtag function
+type GtagFunction = (command: string, eventName: string, parameters?: Record<string, unknown>) => void
+
+// Extend window with gtag
+declare global {
+  interface Window {
+    gtag?: GtagFunction
+  }
+}
+
 export default function GoogleAnalytics() {
   return (
     <>
@@ -28,8 +38,8 @@ export default function GoogleAnalytics() {
 
 // Helper function to track custom events
 export const trackEvent = (action: string, category: string, label?: string, value?: number) => {
-  if (typeof window !== 'undefined' && (window as any).gtag) {
-    ;(window as any).gtag('event', action, {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', action, {
       event_category: category,
       event_label: label,
       value: value,
