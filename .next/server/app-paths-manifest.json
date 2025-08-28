@@ -1,5 +1,13 @@
 {
-  "/page": "app/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/about/page": "app/about/page.js",
+  "/contact-us/page": "app/contact-us/page.js",
   "/ourservises/page": "app/ourservises/page.js",
-  "/ourwork/page": "app/ourwork/page.js"
+  "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
+  "/ourwork/page": "app/ourwork/page.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
+  "/page": "app/page.js",
+  "/icon/route": "app/icon/route.js",
+  "/apple-icon/route": "app/apple-icon/route.js"
 }

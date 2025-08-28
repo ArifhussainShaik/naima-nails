@@ -1,4 +1,4 @@
-// File: C:\Users\Arif\Desktop\Local Buiness Website Work\Naima Nails\app\ourservises\page.tsx
+// File: C:\Users\Arif\naima-nails\app\ourservises\page.tsx
 import * as entry from '../../../../app/ourservises/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
