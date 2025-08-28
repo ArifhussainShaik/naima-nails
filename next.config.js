@@ -24,7 +24,7 @@ const nextConfig = {
   trailingSlash: true,
   basePath: '',
   experimental: {
-    optimizePackageImports: ['framer-motion'],
+    optimizePackageImports: ['framer-motion', 'lucide-react'],
   },
   // Remove legacy JavaScript polyfills for modern browsers
   swcMinify: true,
@@ -32,7 +32,7 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
 
-  // Optimize for modern ES features
+  // Optimize for modern ES features and reduce bundle size
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
       // Remove polyfills for modern browsers
@@ -42,8 +42,61 @@ const nextConfig = {
         net: false,
         tls: false,
       }
+      
+      // Optimize bundle splitting
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+          },
+          common: {
+            name: 'common',
+            minChunks: 2,
+            chunks: 'all',
+            enforce: true,
+          },
+        },
+      }
     }
     return config
+  },
+
+  // Enable compression
+  compress: true,
+  
+  // Optimize headers for better caching
+  async headers() {
+    return [
+      {
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+        ],
+      },
+    ]
   },
 }
 

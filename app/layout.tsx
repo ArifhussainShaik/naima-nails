@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import FontLoader from '@/components/FontLoader'
+import StructuredData from '@/components/StructuredData'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://naominailsnyc.com'),
@@ -32,6 +34,8 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#a2382f" />
         <meta name="color-scheme" content="light" />
+        <StructuredData />
+        <GoogleAnalytics />
       </head>
       <body className="font-inter antialiased">
         <FontLoader />
