@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { useState } from 'react'
 
 const services = [
   {
@@ -52,6 +53,43 @@ const services = [
   }
 ]
 
+// Image component with fallback
+function ServiceImage({ src, alt, className }: { src: string; alt: string; className?: string }) {
+  const [imageError, setImageError] = useState(false)
+  const [useNextImage, setUseNextImage] = useState(true)
+
+  if (imageError || !useNextImage) {
+    return (
+      <img
+        src={src}
+        alt={alt}
+        className={`w-full h-full object-cover ${className}`}
+        onError={() => {
+          console.error('Fallback img also failed:', src)
+          setImageError(true)
+        }}
+        onLoad={() => console.log('Fallback img loaded:', src)}
+      />
+    )
+  }
+
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      fill
+      className={`object-cover ${className}`}
+      loading="lazy"
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+      onError={(e) => {
+        console.error('Next.js Image failed, switching to fallback:', src)
+        setUseNextImage(false)
+      }}
+      onLoad={() => console.log('Next.js Image loaded:', src)}
+    />
+  )
+}
+
 export default function OurServices() {
   return (
     <div className="min-h-screen">
@@ -90,13 +128,10 @@ export default function OurServices() {
                 className="group bg-white rounded-lg shadow-lg overflow-hidden card-hover"
               >
                 <div className="relative h-64 overflow-hidden">
-                  <Image
+                  <ServiceImage
                     src={service.image}
                     alt={service.alt}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+                    className="group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <div className="p-6 space-y-4">

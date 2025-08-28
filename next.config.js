@@ -7,11 +7,26 @@ const nextConfig = {
     minimumCacheTTL: 60,
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    unoptimized: false,
+    loader: 'default',
+    domains: [],
+    remotePatterns: [],
+    quality: 85,
   },
-  // Remove static export for better image optimization
-  // output: 'export',
+  // Ensure proper static file serving
+  async rewrites() {
+    return [
+      {
+        source: '/images/:path*',
+        destination: '/images/:path*',
+      },
+    ]
+  },
   trailingSlash: true,
   basePath: '',
+  experimental: {
+    optimizePackageImports: ['framer-motion'],
+  },
 }
 
 module.exports = nextConfig
