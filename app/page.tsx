@@ -133,7 +133,7 @@ export default function Home() {
                   fill
                   className="object-cover"
                   priority
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 500px"
                 />
               </div>
             </motion.div>
@@ -163,13 +163,15 @@ export default function Home() {
             {/* Navigation Arrows */}
             <button 
               onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              aria-label="Previous slide"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300 group min-w-[48px] min-h-[48px] flex items-center justify-center"
             >
               <ChevronLeft className="w-6 h-6 text-accent group-hover:text-primary transition-colors" />
             </button>
             <button 
               onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              aria-label="Next slide"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300 group min-w-[48px] min-h-[48px] flex items-center justify-center"
             >
               <ChevronRight className="w-6 h-6 text-accent group-hover:text-primary transition-colors" />
             </button>
@@ -204,7 +206,7 @@ export default function Home() {
                               fill
                               className="object-cover transition-all duration-700"
                               loading="lazy"
-                              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 348px"
                             />
                           </motion.div>
                         ))}
@@ -215,15 +217,16 @@ export default function Home() {
             </div>
 
             {/* Slide Indicators */}
-            <div className="flex justify-center mt-8 space-x-2">
+            <div className="flex justify-center mt-8 space-x-3">
               {Array.from({ length: totalSlides }).map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  aria-label={`Go to slide ${index + 1}`}
+                  className={`min-w-[16px] min-h-[16px] rounded-full transition-all duration-300 ${
                     index === currentSlide 
-                      ? 'bg-accent scale-125' 
-                      : 'bg-gray-300 hover:bg-gray-400'
+                      ? 'bg-accent scale-125 w-4 h-4' 
+                      : 'bg-gray-300 hover:bg-gray-400 w-3 h-3'
                   }`}
                 />
               ))}
@@ -281,7 +284,7 @@ export default function Home() {
                   fill
                   className="object-cover object-center"
                   loading="lazy"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 480px"
                 />
               </div>
             </motion.div>

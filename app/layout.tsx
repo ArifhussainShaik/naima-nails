@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import FontLoader from '@/components/FontLoader'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://naominailsnyc.com'),
@@ -20,7 +21,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://book.squareup.com" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="dns-prefetch" href="https://book.squareup.com" />
+        <meta name="theme-color" content="#a2382f" />
+        <meta name="color-scheme" content="light" />
+      </head>
       <body className="font-inter antialiased">
+        <FontLoader />
         {children}
       </body>
     </html>

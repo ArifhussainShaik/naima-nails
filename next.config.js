@@ -26,6 +26,26 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['framer-motion'],
   },
+  // Remove legacy JavaScript polyfills for modern browsers
+  swcMinify: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  // Target modern browsers to reduce bundle size
+  target: 'serverless',
+  // Optimize for modern ES features
+  webpack: (config, { dev, isServer }) => {
+    if (!dev && !isServer) {
+      // Remove polyfills for modern browsers
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+      }
+    }
+    return config
+  },
 }
 
 module.exports = nextConfig

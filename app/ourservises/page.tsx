@@ -80,7 +80,7 @@ function ServiceImage({ src, alt, className }: { src: string; alt: string; class
       fill
       className={`object-cover ${className}`}
       loading="lazy"
-      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
       onError={(e) => {
         console.error('Next.js Image failed, switching to fallback:', src)
         setUseNextImage(false)
@@ -138,7 +138,7 @@ export default function OurServices() {
                   <h3 className="text-xl font-playfair font-semibold text-accent">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-700 leading-relaxed">
                     {service.description}
                   </p>
                 </div>
@@ -161,7 +161,7 @@ export default function OurServices() {
             <h2 className="text-3xl sm:text-4xl font-playfair font-bold text-accent">
               Let Your Nails Speak for You
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
               Custom looks, signature Russian techniques, NYC precision.
             </p>
           </motion.div>
@@ -174,7 +174,7 @@ export default function OurServices() {
           >
             <Button 
               size="lg" 
-              className="text-lg px-8 py-4"
+              className="text-lg px-8 py-4 min-h-[48px]"
               asChild
             >
               <Link href="https://book.squareup.com/appointments/wrihc8xsibqcv1/location/L08P34K5DVK71/services?buttonTextColor=ffffff&color=a2382f&locale=en&referrer=so">
