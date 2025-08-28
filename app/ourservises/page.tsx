@@ -12,42 +12,42 @@ const services = [
     id: 1,
     title: 'Manicure Without Polish',
     description: 'Clean, strong, natural. A perfect base manicure focused on nail health, shaping, and cuticle care. Let your natural nails shine.',
-    image: '/Naima Nails webp images/manicure_05.webp',
+    image: '/images/manicure_05.webp',
     alt: 'Clean natural manicure without polish showing healthy nail beds and perfect cuticle work'
   },
   {
     id: 2,
     title: 'Gel Manicure',
     description: 'Flawless wear. Precision finish. Long-lasting, chip-resistant gel that stays perfect for 3+ weeks. Includes cuticle care and shaping.',
-    image: '/Naima Nails webp images/manicure_02.webp',
+    image: '/images/manicure_02.webp',
     alt: 'Professional gel manicure with glossy finish and perfect application technique'
   },
   {
     id: 3,
     title: 'Nail Extensions',
     description: 'Length meets artistry. Custom-shaped extensions with a natural look - no one will know they\'re not your own. Built to last.',
-    image: '/Naima Nails webp images/IMG_0735.webp',
+    image: '/images/IMG_0735.webp',
     alt: 'Elegant nail extensions with sophisticated design and natural-looking length'
   },
   {
     id: 4,
     title: 'Pedicure With Polish',
     description: 'Clean. Calm. Beautiful color. Professional pedicure service with precision polish application and relaxing foot care treatment.',
-    image: '/Naima Nails webp images/other_01.webp',
+    image: '/images/other_01.webp',
     alt: 'Professional pedicure service with polish application and foot care treatment'
   },
   {
     id: 5,
     title: 'Gel Pedicure',
     description: 'Beautiful color, lasting results. Our signature gel pedicure combines precise cuticle work with rich, long-lasting shine. Designed to stay flawless.',
-    image: '/Naima Nails webp images/manicure_09.webp',
+    image: '/images/manicure_09.webp',
     alt: 'Gel pedicure with long-lasting shine and professional finish'
   },
   {
     id: 6,
     title: 'Gel Pedicure (Toes Only)',
     description: 'Just the toes, all the impact. Quick gel polish application for toes only—ideal for in-between visits or when you want a refresh.',
-    image: '/Naima Nails webp images/IMG_0747.webp',
+    image: '/images/IMG_0747.webp',
     alt: 'Gel pedicure focusing on toes with precise application and beautiful color'
   }
 ]
